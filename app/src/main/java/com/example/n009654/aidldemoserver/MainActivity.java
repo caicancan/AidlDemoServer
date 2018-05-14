@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 import com.ffpy.demo.IMyAidlInterface;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     mStub.show();
+                    tv.setText(""+mStub.getBeauty());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
