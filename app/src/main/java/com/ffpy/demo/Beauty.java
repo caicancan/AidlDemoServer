@@ -31,6 +31,7 @@ public class Beauty implements Parcelable {
         return sex;
     }
 
+
     public void setSex(String sex) {
         this.sex = sex;
     }
