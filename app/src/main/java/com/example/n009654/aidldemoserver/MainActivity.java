@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = new Intent();
+
                     //由于是隐式启动Service 所以要添加对应的action，A和之前服务端的一样。
                    intent.setAction("com.ffpy.demo.HelloService");
                     //android 5.0以后直设置action不能启动相应的服务，需要设置packageName或者Component。
@@ -40,11 +41,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     mStub.show();
-                    tv.setText(""+mStub.getBeauty());
+                    //tv.setText(""+mStub.getBeauty());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                startActivity(new Intent(getApplicationContext(), WebViewActivity.class));
+                Snackbar.make(view, "试试底部的弹框", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
