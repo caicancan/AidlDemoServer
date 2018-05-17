@@ -44,11 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
                 try {
                     mStub.show();
-                    tv.setText(""+mStub.getBeauty().getName());
+                    tv.setText(""+mStub.getBeauty());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-                startActivity(new Intent(getApplicationContext(),WebViewActivity.class));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -97,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -105,12 +105,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.judp:
-
-                break;
-        }
-    }
 }
