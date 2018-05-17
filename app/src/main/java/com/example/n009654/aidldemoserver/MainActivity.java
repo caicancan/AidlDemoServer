@@ -14,17 +14,21 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import com.ffpy.demo.IMyAidlInterface;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tv;
+    private Button jupe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        jupe = (Button) findViewById(R.id.judp);
+        jupe.setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = new Intent();
@@ -40,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     mStub.show();
-                    tv.setText(""+mStub.getBeauty());
+                    tv.setText(""+mStub.getBeauty().getName());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
+                startActivity(new Intent(getApplicationContext(),WebViewActivity.class));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -92,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -101,4 +105,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.judp:
+
+                break;
+        }
+    }
 }
