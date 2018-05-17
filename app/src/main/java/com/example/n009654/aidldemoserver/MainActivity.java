@@ -14,21 +14,17 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.TextView;
 import com.ffpy.demo.IMyAidlInterface;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
-    private Button jupe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        jupe = (Button) findViewById(R.id.judp);
-        jupe.setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = new Intent();
@@ -48,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
+                startActivity(new Intent(getApplicationContext(),WebViewActivity.class));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
