@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,19 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
+    <!--第一种添加fragment的方式
+    <fragment-->
+            <!--android:name="com.example.n009654.aidldemoserver.BlankFragment"-->
+           <!--android:id="@+id/myfragmentid"-->
+           <!--android:layout_width="400dp"-->
+          <!--android:layout_height="500dp"-->
+           <!--android:layout_gravity="center"/>-->
+    <FrameLayout
+        android:id="@+id/fv_content"
+        android:layout_width="400dp"
+        android:layout_height="500dp">
 
+    </FrameLayout>
     <TextView
         android:id="@+id/tv"
         android:background="@android:color/black"

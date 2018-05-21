@@ -20,7 +20,8 @@ android {
 }
 
 dependencies {
-   //检查内存泄漏的jar包
+    //检查内存泄漏的jar包
+    implementation 'com.android.support:support-v4:27.1.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
