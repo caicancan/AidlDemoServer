@@ -3,13 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.n009654.aidldemoserver.MainActivity">
     <item
-        android:id="@+id/menu01"
+        android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always" />
     <item
+        android:id="@+id/menu01"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu02"
         android:orderInCategory="100"
         android:title="test"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 </menu>
