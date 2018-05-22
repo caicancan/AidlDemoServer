@@ -29,7 +29,7 @@ import com.squareup.leakcanary.RefWatcher;
 
 import java.util.HashSet;
 
-public class MainActivity extends AppCompatActivity implements  OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements  OnFragmentInteractionListener{
 
     private TextView tv;
     private Button jupe;
