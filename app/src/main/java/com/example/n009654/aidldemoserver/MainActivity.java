@@ -156,8 +156,9 @@ public class MainActivity extends AppCompatActivity implements  OnFragmentIntera
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+       getMenuInflater().inflate(R.menu.menu_main, menu);
+        Toast.makeText(getApplicationContext(),"onCreateOptionMenu",Toast.LENGTH_SHORT).show();
+       return true;
     }
 
     @Override
@@ -165,14 +166,17 @@ public class MainActivity extends AppCompatActivity implements  OnFragmentIntera
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.menu01:
+                Toast.makeText(this, "设置", Toast.LENGTH_LONG).show();
+                break;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.menu02:
+                Toast.makeText(this, "测试", Toast.LENGTH_LONG).show();
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
 }
