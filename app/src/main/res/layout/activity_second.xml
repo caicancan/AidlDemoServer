@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    作为最上层的View
+    作为一个 容器与一个或者多个子View进行交互
+  -->
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,8 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:title="5.0新特性"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             android:background="@color/colorAccent"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <Button
+                android:text="我是toolbar里面添加的子控件"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            </android.support.v7.widget.Toolbar>
         <android.support.design.widget.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
