@@ -3,7 +3,10 @@ package com.example.n009654.aidldemoserver.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +58,7 @@ public class SecondFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("ccc","onCreate");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -65,6 +69,7 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.i("ccc","onCreateView");
         return inflater.inflate(R.layout.fragment_second, container, false);
     }
 
@@ -76,8 +81,15 @@ public class SecondFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.i("ccc","onViewCreated");
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.i("ccc","attach");
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
@@ -87,9 +99,46 @@ public class SecondFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Log.i("ccc","onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("ccc","OnResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("ccc","OnPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i("ccc","onStop");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("ccc","onDestory");
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        Log.i("ccc",""+hidden);
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        Log.i("ccc","onDetach");
     }
 
     /**
