@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements  OnFragmentIntera
         setSupportActionBar(toolbar);
         Intent intent = new Intent();
                     //由于是隐式启动Service 所以要添加对应的action，A和之前服务端的一样。
-                   intent.setAction("com.ffpy.demo.HelloService");
+                    intent.setAction("com.ffpy.demo.HelloService");
                     //android 5.0以后直设置action不能启动相应的服务，需要设置packageName或者Component。
                     intent.setPackage("com.ffpy.demo"); //packageName 需要和服务端的一致.
                    bindService(intent,serviceConnection,BIND_AUTO_CREATE);
@@ -70,8 +70,10 @@ public class MainActivity extends AppCompatActivity implements  OnFragmentIntera
             @Override
             public void onClick(View view) {
                 try {
-                    mStub.show();
-                    tv.setText(""+mStub.getBeauty());
+                    if (mStub!=null) {
+                        mStub.show();
+                        tv.setText("" + mStub.getBeauty());
+                    }
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

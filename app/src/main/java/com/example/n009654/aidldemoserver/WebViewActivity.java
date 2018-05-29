@@ -17,7 +17,9 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         webview = (WebView) findViewById(R.id.webview);
-        webview.loadUrl("http://news.baidu.com/guonei");
+        //webview.loadUrl("http://news.baidu.com/guonei");
+        webview.loadUrl("file:///android_asset/study.html");
+       // webview.addJavascriptInterface();
     }
 
 }
