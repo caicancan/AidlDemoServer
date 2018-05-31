@@ -18,7 +18,7 @@ public class LeakApplication extends Application {
         refWatcher= setupLeakCanary();
     }
     private RefWatcher setupLeakCanary() {
-        if (LeakCanary.isInAnalyzerProcess(this)) {
+        if (LeakCanary.isInAnalyzerProcess(getApplicationContext())) {
             return RefWatcher.DISABLED;
         }
         return LeakCanary.install(this);

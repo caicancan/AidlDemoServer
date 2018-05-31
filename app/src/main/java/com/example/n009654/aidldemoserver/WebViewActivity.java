@@ -20,6 +20,12 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
 
     private WebView webview;
     private Button showjs;
+    /**
+     * webview的使用容易产生内存泄漏
+     * 1.可以动态加载webview
+     * 2.在ondestory的时候移除webview
+     *
+     * */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,11 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         //webview.loadUrl("http://news.baidu.com/guonei");
         webview.loadUrl("file:///android_asset/study.html");
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

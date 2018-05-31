@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements  OnFragmentIntera
     public void onFragmentInteraction(Uri uri) {
         Toast.makeText(MainActivity.this,"this is："+uri,Toast.LENGTH_SHORT).show();
     }
-
-    class LeakThread extends Thread {
+//线程造成的内存泄漏，没有static的时候引用了外部引用
+    public static class LeakThread extends Thread {
         @Override
         public void run() {
             try {
@@ -151,8 +151,8 @@ public class MainActivity extends AppCompatActivity implements  OnFragmentIntera
     protected void onDestroy() {
         super.onDestroy();
         unbindService(serviceConnection);
-        RefWatcher refWatcher = LeakApplication.getRefWatcher(this);//1
-        refWatcher.watch(this);
+        RefWatcher refWatcher = LeakApplication.getRefWatcher(getApplicationContext());//1
+        refWatcher.watch(getApplicationContext());
     }
 
     @Override
