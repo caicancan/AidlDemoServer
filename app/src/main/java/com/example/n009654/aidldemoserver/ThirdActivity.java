@@ -15,9 +15,12 @@ import rx.Subscriber;
 
 public class ThirdActivity extends AppCompatActivity {
     private static final String TAG = "ccc";
+    private Observable observable;
 
     /**
  * 添加了rxjava的学习
+     * 前面他们进行了绑定了
+     * 被观察者（observble）发送事件（参数）给观察者（observer）进行处理
  * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,8 @@ public class ThirdActivity extends AppCompatActivity {
                 public void onNext(String s) {
                 Log.i(TAG, s); }
         };
-        Subscriber<String> subscriber = new Subscriber<String>() {
+        //源码中也是将observer先转化为subscriber进行订阅
+            Subscriber<String> subscriber = new Subscriber<String>() {
             @Override
             public void onNext(String s) {
                 Log.d(TAG, "Item: " + s);
@@ -56,18 +60,20 @@ public class ThirdActivity extends AppCompatActivity {
 
 
        //创建被观察者observable,它有几种创建方式
-        final Observable observable=Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-            subscriber.onNext("哈哈哈");
-            subscriber.onCompleted();
-            }
-
-        });
+//        observable = Observable.create(new Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(Subscriber<? super String> subscriber) {
+//            subscriber.onNext("哈哈哈");
+//            subscriber.onCompleted();
+//
+//            }
+//
+//        });
+        observable=Observable.just("Hello", "Hi", "Aloha");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //订阅相当于点击
+                //订阅相当于点击,发送事件
             observable.subscribe(observer);
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
